@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shreya 💌🌙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --desk-bg: #120a06;
+            --envelope-outer: #2d1b10;
+            --envelope-inner: #1f120a;
+            --ink-color: #1a0f0a;
+            --burnt-charcoal: #140b07;
+            --scorched-brown: #3d1f10;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Candlelit workspace ambiance */
+            background: radial-gradient(circle at center, #2b1a11 0%, var(--desk-bg) 100%);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Subtle dust texture overlay across the desk */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3e%3cfilter id='noise'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noise)'/%3e%3c/svg%3e");
+        }
+
+        .instructions {
+            color: #bc9e82;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.7);
+        }
+
+        /* The Realistic Heavy Leather/Paper Envelope Wrapper */
+        .envelope-wrapper {
+            position: relative;
+            width: 340px;
+            height: 220px;
+            background-color: var(--envelope-outer);
+            border-radius: 3px;
+            /* Real world dramatic depth drop-shadows */
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.85),
+                0 10px 20px rgba(0, 0, 0, 0.5),
+                inset 0 -8px 20px rgba(0,0,0,0.6);
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Front flap structure with tactile depth shading */
+        .envelope-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 4;
+            background: linear-gradient(36deg, #24150d 49%, transparent 50%),
+                        linear-gradient(-36deg, #1c100a 49%, transparent 50%);
+            border-radius: 0 0 3px 3px;
+            box-shadow: inset 0 6px 15px rgba(0,0,0,0.6), 0 -2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Top Heavy Flap */
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 170px solid transparent;
+            border-right: 170px solid transparent;
+            border-top: 125px solid var(--envelope-inner);
+            transform-origin: top;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.2s;
+            z-index: 5;
+            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.55));
+        }
+
+        /* Wax Seal Melted Stamp */
+        .sticker {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #700606 0%, #420202 100%);
+            border-radius: 52% 48% 55% 45% / 48% 52% 50% 50%; /* Uneven organic wax spill shape */
+            z-index: 6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #af9375;
+            font-size: 1.1rem;
+            box-shadow: 
+                0 6px 12px rgba(0,0,0,0.6), 
+                inset 0 3px 5px rgba(255,255,255,0.1),
+                inset 0 -3px 8px rgba(0,0,0,0.5);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Highly Realistic Burned-Edge Parchment Paper Letter */
+        .letter {
+            position: absolute;
+            bottom: 12px;
+            left: 18px;
+            width: 304px;
+            height: 195px;
+            z-index: 3;
+            overflow-y: auto; 
+            pointer-events: none; 
+            padding: 30px 22px;
+            box-sizing: border-box;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Organic Asymmetric Fire-Torn Burn Shape */
+            clip-path: polygon(
+                2% 0%, 14% 1%, 28% 0%, 45% 2%, 62% 0%, 78% 1%, 89% 0%, 99% 2%, 
+                98% 12%, 100% 28%, 97% 46%, 99% 65%, 98% 84%, 99% 100%, 
+                88% 98%, 73% 99%, 58% 97%, 42% 99%, 24% 98%, 11% 99%, 0% 97%, 
+                2% 82%, 0% 61%, 3% 44%, 1% 26%, 3% 11%
+            );
+
+            /* Multi-staged Scorched & Aged paper look */
+            background: 
+                /* Fibrous paper grain simulation */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3e%3cfilter id='paper'%3e%3cfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise'/%3e%3cfeColorMatrix type='matrix' values='0.33 0 0 0 0.66 0 0.33 0 0 0.58 0 0 0.33 0 0.43 0 0 0 0.15 0'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23paper)'/%3e%3c/svg%3e"),
+                linear-gradient(135deg, #e4cca2 0%, #d8be91 30%, #cfae7d 70%, #bd9c6a 100%);
+            
+            box-shadow: 
+                0 5px 20px rgba(0,0,0,0.6),
+                /* Graduated intense crisp ash burn ring around inner edges */
+                inset 0 0 25px var(--burnt-charcoal),
+                inset 0 0 50px var(--scorched-brown),
+                inset 0 0 90px rgba(92, 53, 26, 0.4);
+            border: 1px solid var(--burnt-charcoal);
+        }
+
+        /* Letter paper surface grain texture filter overlay */
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent 0%, rgba(20, 11, 7, 0.05) 100%);
+            z-index: 2;
+        }
+
+        /* Content Text Wrapper */
+        .letter-content {
+            position: relative;
+            z-index: 3;
+            color: var(--ink-color);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: center;
+            white-space: pre-line; 
+            font-weight: 600;
+            /* Real faded ink presentation style */
+            font-family: 'Playfair Display', serif;
+            opacity: 0.9;
+            text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.2);
+        }
+
+        /* Vintage Ink Calligraphy Header for Shreya */
+        .letter-header {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #3b0505;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(59, 5, 5, 0.15);
+            padding-bottom: 10px;
+        }
+
+        /* --- ACTIVE TAP OPENED CONFIGURATION --- */
+
+        /* Swing flap backward */
+        .envelope-wrapper.open .flap {
+            transform: rotateX(180deg);
+            z-index: 2;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.15s 0.15s;
+        }
+
+        /* Shrink & hide physical wax stamp */
+        .envelope-wrapper.open .sticker {
+            opacity: 0;
+            transform: translateX(-50%) scale(0.4) rotate(-15deg);
+            pointer-events: none;
+        }
+
+        /* Smooth extraction animation out of the envelope cavity */
+        .envelope-wrapper.open .letter {
+            transform: translateY(-175px) scale(1.15);
+            height: 350px; 
+            z-index: 7; 
+            pointer-events: auto; 
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.9),
+                0 15px 30px rgba(0, 0, 0, 0.6),
+                inset 0 0 28px var(--burnt-charcoal),
+                inset 0 0 55px var(--scorched-brown);
+            transition: 
+                transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s, 
+                height 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s,
+                box-shadow 0.5s ease;
+        }
+
+        /* Styled Minimalist Fluid Scrollbar Track */
+        .letter::-webkit-scrollbar {
+            width: 4px;
+        }
+        .letter::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .letter::-webkit-scrollbar-thumb {
+            background: #543b26;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instructions" id="hint">Tap to Open 💌</div>
+
+    <div class="envelope-wrapper" id="envelope">
+        <div class="flap"></div>
+        <div class="sticker">⚜️</div>
+        
+        <div class="letter">
+            <div class="letter-content"><span class="letter-header">Shreya 💌🌙</span>I don’t know when exactly you became so important to me, but now my day feels incomplete without talking to you 🫶✨
+Your smile has this strange magic... it makes even bad days feel lighter 🌸❤️
+
+तुझ्या डोळ्यांत चांदण्यांची रात्र दिसते 🌙✨
+तुझ्या हसण्यात माझं पूर्ण जग बसते 💖
+
+Talking to you feels peaceful, like my mind finally found a place where it belongs 🕊️💫
+
+तुझ्या शब्दांनी मनाला स्पर्श होतो ❤️
+तुझ्यासोबत प्रत्येक क्षण खास होतो 🌹✨
+
+I may not always find perfect words, but one thing is true...
+I genuinely care about you, and I never want to lose you 🥺💞</div>
+        </div>
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        const hint = document.getElementById('hint');
+
+        envelope.addEventListener('click', (e) => {
+            // Guard conditions to avoid closure while scrolling note content body
+            if (e.target.closest('.letter')) return;
+
+            if (envelope.classList.contains('open')) {
+                envelope.classList.remove('open');
+                hint.textContent = "Tap to Open 💌";
+            } else {
+                envelope.classList.add('open');
+                hint.textContent = "Tap to Close 📜";
+            }
+        });
+    </script>
+
+</body>
+</html>
